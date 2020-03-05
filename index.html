@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="nl">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>SpaceX_challenge1</title>
+		<link type="text/css" href="css/style.css" rel="stylesheet" />
+		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	</head>
+	<body>
+		<h1>SpaceX</h1>
+		<div class="dashboard-container">
+			<div class="dashboard-item omgeving">
+				<h3>Afstand over tijd in KM</h3>
+				<div id="voertuig"></div>
+				 <script>
+	            google.charts.load('current', {'packages':['corechart']});
+			    google.charts.setOnLoadCallback(drawChart);
+
+			    function drawChart() {
+
+			      var data = new google.visualization.DataTable();
+			      data.addColumn('string', 'Tijd');
+			      data.addColumn('number', 'Aantal KM');
+			      data.addRows([
+			        ['06:00', 0],
+			        ['10:00', 4200],
+			        ['14:00', 9000],
+			        ['18:00', 16000],
+			        ['22:00', 20500],
+			        ['02:00', 22200]
+			      ]);
+
+			      var options = {
+					legend: 'none',
+			        sliceVisibilityThreshold: .3,
+			      };
+
+			      var chart = new google.visualization.AreaChart(document.getElementById('voertuig'));
+			      chart.draw(data, options);
+			    };
+	    		</script>
+			</div>
+
+			<div class="dashboard-item voorraden">
+				<h3>Voorraad</h3>
+				<div id="voorraden"></div>
+				 <script>
+	            google.charts.load('current', {'packages':['corechart']});
+			    google.charts.setOnLoadCallback(drawChart);
+
+			    function drawChart() {
+
+			      var data = new google.visualization.DataTable();
+			      data.addColumn('string', 'Eten');
+			      data.addColumn('number', 'Water');
+			      data.addRows([
+			        ['Eten', 45],
+			        ['Water', 70],
+			      ]);
+
+			       var options = {
+			        
+			          pieHole: 0.4,
+			        };
+
+			      var chart = new google.visualization.PieChart(document.getElementById('voorraden'));
+			      
+			      chart.draw(data, options);
+			    };
+	    		</script>
+			</div>
+
+			<div class="dashboard-item tools">
+				<h3>Crew</h3>
+				<div id="tools"></div>
+				 <script>
+			      google.charts.load('current', {'packages':['corechart']});
+			      google.charts.setOnLoadCallback(drawChart);
+
+			      function drawChart() {
+				      var data = new google.visualization.DataTable();
+				      data.addColumn('string', 'Crew');
+				      data.addColumn('number', 'Aantal');
+				      data.addRows([
+				        ['Mannen', 40],
+				        ['Vrouwen', 30],
+				      ]);
+
+			        var options = {
+			       
+			        };
+
+			        var chart = new google.visualization.PieChart(document.getElementById('tools'));
+
+			        chart.draw(data, options);
+			      }
+			    </script>
+			</div>
+		</div>
+	</body>
+</html>
